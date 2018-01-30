@@ -1,0 +1,9 @@
+<div *ngIf="messageService.messages.length">
+  <h2>Messages</h2>
+  <div fxLayout>
+    <button mat-fab color="accent" (click)="messageService.clear()">Clear</button>
+    <mat-list>
+      <mat-list-item *ngFor='let message of messageService.messages'>{{message}}</mat-list-item>
+    </mat-list>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<h3>Top Heroes</h3>
+<div fxLayout>
+  <!-- <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
+    <div>
+      <h4>{{hero.name}}</h4>
+    </div>
+  </a> -->
+  <mat-card *ngFor="let hero of heroes" (click)="gotoHeroDetail(hero)">{{hero.name}}</mat-card>
+</div>

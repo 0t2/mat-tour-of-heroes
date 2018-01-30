@@ -1,5 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  QueryList,
+  AfterViewInit
+} from "@angular/core";
 import { Hero } from "../hero";
+import { HEROES } from "../mock-heroes";
+import { MatListItem } from "@angular/material";
+import { HeroService } from "../hero.service";
 
 @Component({
   selector: "app-heroes",
@@ -7,12 +16,15 @@ import { Hero } from "../hero";
   styleUrls: ["./heroes.component.scss"]
 })
 export class HeroesComponent implements OnInit {
-  hero: Hero = {
-    id: 1,
-    name: "Windstorm"
-  };
+  heroes: Hero[];
 
-  constructor() {}
+  constructor(private heroService: HeroService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes().subscribe(heroes => (this.heroes = heroes));
+  }
 }

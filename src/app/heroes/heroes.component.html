@@ -1,9 +1,6 @@
-<h2>
-  {{ hero.name | uppercase}} Details
-</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div>
-  <label>name:
-    <input [(ngModel)]="hero.name" placeholder="name">
-  </label>
-</div>
+<h2>My Heroes</h2>
+<mat-nav-list>
+  <a *ngFor="let hero of heroes" mat-list-item routerLink="/detail/{{hero.id}}">
+    <mat-icon>flash_on</mat-icon> {{hero.id}} <mat-icon>flash_on</mat-icon> {{hero.name}}
+  </a>
+</mat-nav-list>
