@@ -1,7 +1,17 @@
-<h1>{{title}}</h1>
-<nav>
-  <a mat-raised-button color="primary" routerLink="/dashboard">Dashboard</a>
-  <a mat-raised-button color="primary" routerLink="/heroes">Heroes</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <div fxFlex>
+    <h1>{{title}}</h1>
+  </div>
+  <div fxFlex>
+    <nav>
+      <a mat-raised-button color="primary" routerLink="/dashboard">Dashboard</a>
+      <a mat-raised-button color="primary" routerLink="/heroes">Heroes</a>
+    </nav>
+  </div>
+  <div fxFlex>
+    <router-outlet></router-outlet>
+  </div>
+  <div fxFlex>
+    <app-messages></app-messages>
+  </div>
+</div>
