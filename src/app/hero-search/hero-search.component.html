@@ -1,0 +1,8 @@
+<mat-form-field>
+  <input #searchBox type="text" placeholder="Hero Search" matInput [matAutocomplete]="auto" (keyup)="search(searchBox.value)">
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)" [displayWith]="displayHero">
+    <mat-option *ngFor="let hero of heroes$ | async" [value]="hero">
+      {{ hero.name }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

@@ -1,6 +1,22 @@
-<h2>My Heroes</h2>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <h2>My Heroes</h2>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Hero name" #heroName>
+    </mat-form-field>
+    <button mat-raised-button (click)="add(heroName.value); heroName.value=''">
+      Add
+    </button>
+  </div>
+</div>
 <mat-nav-list>
-  <a *ngFor="let hero of heroes" mat-list-item routerLink="/detail/{{hero.id}}">
-    <mat-icon>flash_on</mat-icon> {{hero.id}} <mat-icon>flash_on</mat-icon> {{hero.name}}
-  </a>
+  <div *ngFor="let hero of heroes" fxLayout>
+    <a mat-list-item routerLink="/detail/{{hero.id}}" fxFlex="1 1 auto">
+      <mat-icon>flash_on</mat-icon> {{hero.id}}
+      <mat-icon>flash_on</mat-icon> {{hero.name}}
+    </a>
+    <button mat-icon-button color="warn" (click)="delete(hero)">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
 </mat-nav-list>
